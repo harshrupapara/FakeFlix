@@ -1,0 +1,81 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Data.Fields
+@using Sitecore.Mvc.Presentation
+@model Sitecore.Mvc.Presentation.RenderingModel
+@using Sitecore.Data.Items
+
+
+<footer>
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 footer-content-container">
+                    <div class="footer-title">
+                        <p>@Html.Sitecore().Field("NavTitle")</p>
+                    </div>
+                    <div class="footer-content">
+                        <ul class="footer-nav">
+                            @{
+                                Item currentItem = Sitecore.Mvc.Presentation.RenderingContext.Current.Rendering.Item;
+                                MultilistField navLinks = (MultilistField)currentItem.Fields["NavLinks"];
+                                Item[] selectedItems = navLinks.GetItems();
+                            }
+                            @foreach (var items in selectedItems)
+                            {
+                                LinkField links = items.Fields["LinkURL"];
+                                string footerNavLinks = links.GetFriendlyUrl().Replace("/Horizontal/FakeFlix/Home", "");
+                                if (!items.HasChildren)
+                                {
+                                    <li class="footer-links-list">
+                                        @Html.Sitecore().Field("LinkURL", items, new { @href = footerNavLinks })
+                                    </li>
+                                }
+                                    
+                            }
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-content-container">
+                    <div class="footer-title">
+                        <p>@Html.Sitecore().Field("DescTitle")</p>
+                    </div>
+                    <div class="footer-content">
+                        <p>
+                            @Html.Sitecore().Field("DescDetails")
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-content-container">
+                    <div class="footer-title">
+                        <p>@Html.Sitecore().Field("NewsTitle")</p>
+                    </div>
+                    <div class="footer-content">
+                        <p>
+                            @Html.Sitecore().Field("NewsDesc")
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-content-container">
+                    <div class="footer-title">
+                        <p>@Html.Sitecore().Field("SocialTitle")</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center copyright-content">
+                        © 2018 Qode Interactive, All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

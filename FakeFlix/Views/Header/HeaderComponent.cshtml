@@ -1,0 +1,49 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Extensions
+@using Sitecore.Data.Items
+@using Sitecore.Data.Fields
+
+
+@{
+    Item currentItem = Sitecore.Mvc.Presentation.RenderingContext.Current.Rendering.Item;
+    MultilistField navLinks = (MultilistField)currentItem.Fields["NavigationItems"];
+    Item[] selectedItems = navLinks.GetItems();
+}
+<header class="navbar-background">
+    <nav class="navbar navbar-expand-md">
+        @{
+            LinkField logoLink = currentItem.Fields["LogoCTA"];
+            string logoURL = logoLink.GetFriendlyUrl().Replace("/Horizontal/FakeFlix/Home", "");
+
+            @Html.Sitecore().Field("LogoCTA", new {@href=logoURL})
+        }
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="custom-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end"
+             id="navbarNav">
+            <ul class="navbar-nav">
+
+                @{ foreach (var items in selectedItems)
+                    {
+                        LinkField links = items.Fields["NavigationLink"];
+                        string navItemLink = links.GetFriendlyUrl().Replace("/Horizontal/FakeFlix/Home", "");
+                        if (!items.HasChildren)
+                        {
+                            <li class="nav-item">
+                                @Html.Sitecore().Field("NavigationLink", items, new { @href = navItemLink })
+                            </li>
+                        }
+                    }
+                }
+
+            </ul>
+        </div>
+    </nav>
+</header>
