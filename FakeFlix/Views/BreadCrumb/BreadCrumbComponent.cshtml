@@ -2,15 +2,14 @@
 @model FakeFlix.Models.BreadCrumbModel
 @using FakeFlix.Models
 
-<div class="component-wrapper">
-    <div class="container-fluid">
-        <nav class="breadcrumb__content-wrapper">
-            <ol class="breadcrumb">
-                @foreach (var i in Model.AncestorsDetails)
-                {
-                    <li class="breadcrumb__item"><a  href="@i.URL" class="@(i.IsActive ?"active":"") breadcrumb__link">@i.Name</a></li>
-                }
-            </ol>
-        </nav>
-    </div>
-</div>
+        <div class="breadcrumb-wrapper">
+            <nav class="breadcrumb-nav">
+                <ol class="breadcrumb">
+                    @foreach (var i in Model.AncestorsDetails)
+                    {
+                        <li class="breadcrumb-item"><a href="@i.URL" class="@(i.IsActive ?"active":"")">@i.Name</a></li>
+                    }
+
+                </ol>
+            </nav>
+        </div>

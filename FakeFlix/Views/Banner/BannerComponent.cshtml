@@ -12,8 +12,8 @@
                 <div class="carousel-item">
                     @Html.Sitecore().Field("BannerImage", items.BannerItem, new { @class = "d-block w-100" })
                     <div class="banner-caption">
-                        <p>@Html.Sitecore().Field("BannerEyebrowText", items.BannerItem)</p>
-                        <h5>@Html.Sitecore().Field("BannerTitleText", items.BannerItem)</h5>
+                        <p class="text-center eyebrow-text">@Html.Sitecore().Field("BannerEyebrowText", items.BannerItem)</p>
+                        <h5 class="text-center title-text">@Html.Sitecore().Field("BannerTitleText", items.BannerItem)</h5>
                     </div>
                 </div>
             }
