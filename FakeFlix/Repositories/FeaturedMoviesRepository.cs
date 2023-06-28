@@ -1,4 +1,5 @@
 ﻿using FakeFlix.Models;
+using Sitecore.Data;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FakeFlix.Repositories
 {
@@ -17,9 +19,15 @@ namespace FakeFlix.Repositories
             try
             {
                 Item dataSourceItem = RenderingContext.Current.Rendering.Item;
+                if (dataSourceItem == null)
+                {
+                    Sitecore.Diagnostics.Log.Error("Error Ocurred in FeaturedMoviesRepository!", this);
+                    return null;
+                }
+
                 MultilistField multiList = dataSourceItem.Fields["FeaturedMovieList"];
                 Item[] movieItems = multiList.GetItems();
-                List<FeaturedMoviesItem> featuredMoviesItems= new List<FeaturedMoviesItem>();
+                List<FeaturedMoviesItem> featuredMoviesItems = new List<FeaturedMoviesItem>();
                 foreach (Item item in movieItems)
                 {
                     FeaturedMoviesItem list = new FeaturedMoviesItem
@@ -34,7 +42,7 @@ namespace FakeFlix.Repositories
                 };
                 return model;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.Error("An error occured in Featured Movies Repository", ex, typeof(FeaturedMoviesModel));
                 return null;

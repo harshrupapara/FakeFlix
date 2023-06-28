@@ -27,7 +27,7 @@ namespace FakeFlix.Pipelines
             if (args.Url.FilePath.StartsWith("/~/"))
                 return;
 
-            var notFoundPage = Context.Database.GetItem("/sitecore/content/Horizontal/FakeFlix/Home/{1346A16E-BF47-443D-A959-5087CCEA3A78}");
+            var notFoundPage = Context.Database.GetItem("/sitecore/content/Horizontal/FakeFlix/Home/Generic Page");
             if (notFoundPage == null)
                 return;
 
@@ -38,7 +38,7 @@ namespace FakeFlix.Pipelines
         public Item GetError()
         {
             //getting the 404 page by item path
-            var err404ItemPath = "/sitecore/content/Horizontal/FakeFlix/Home/{1346A16E-BF47-443D-A959-5087CCEA3A78}";
+            var err404ItemPath = "/sitecore/content/Horizontal/FakeFlix/Home/Generic Page";
             var error404Item = Context.Database.GetItem(err404ItemPath);
             return error404Item;
         }
