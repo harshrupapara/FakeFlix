@@ -7,9 +7,8 @@
                 <ol class="breadcrumb">
                     @foreach (var i in Model.AncestorsDetails)
                     {
-                        <li class="breadcrumb-item"><a href="@i.URL" class="@(i.IsActive ?"active":"")">@i.Name</a></li>
+                        <li class="breadcrumb-item"><a href="@i.URL" class="@(i.IsActive ? "disable": "active")">@i.Name</a></li>
                     }
-
                 </ol>
             </nav>
         </div>

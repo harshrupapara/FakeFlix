@@ -1,0 +1,54 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Data.Items
+@using FakeFlix.Models
+
+<div class="contact-us-wrapper">
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="contact_us__info">
+                    @{
+                        foreach (ContactDetails items in Model.ContactDetailsList)
+                        {
+                            <div class="contact_us__cards col col-md-6">
+                                <h5>@Html.Sitecore().Field("DetailsTitle", items.ContactDetailsItem)</h5>
+                                <p>
+                                    @Html.Sitecore().Field("DetailsDesc", items.ContactDetailsItem)
+                                </p>
+                                <p>@Html.Sitecore().Field("DetailsPhone", items.ContactDetailsItem)</p>
+                                <p>@Html.Sitecore().Field("DetailsEmail", items.ContactDetailsItem)</p>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="contact_us__form">
+                    <div class="title">
+                        <h2>@Html.Sitecore().Field("FormTitle", Model.ContactFormDetails)</h2>
+                    </div>
+                    <div class="w-100">
+                        <form id="contact-form" class="forms_wrapper">
+                            <div class="forms_wrapper__details">
+                                <input id="contactform-name"
+                                       type="text"
+                                       placeholder="@Html.Sitecore().Field("FullNamePlaceholder", Model.ContactFormDetails)*"
+                                       required />
+                                <input id="contactform-email"
+                                       type="email"
+                                       placeholder="@Html.Sitecore().Field("EmailPlaceholder", Model.ContactFormDetails)*"
+                                       required />
+                                <textarea id="contactform-message"
+                                          rows="10"
+                                          cols="40"
+                                          placeholder="@Html.Sitecore().Field("CommentPlaceholder", Model.ContactFormDetails)*"
+                                          required></textarea>
+                            </div>
+                            <button type="submit" value="Submit">SEND</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

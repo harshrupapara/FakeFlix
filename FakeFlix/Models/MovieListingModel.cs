@@ -13,17 +13,18 @@ namespace FakeFlix.Models
     }
     public class MovieListingItems
     {
-        
         public string MovieTitle { get; set; }
         public string MovieCTALink { get; set; }
         public string MovieCTAText { get; set; }
         public string MoviePoster { get; set; }
         public Boolean IsMovieNew { get; set; }
         public int NewMovieTagDuration { get; set; }
-
         public string CurrentDateTime { get; set; }
         public string CheckedDateTime { get; set; }
+        public string DescTextTitle { get; set; }
+        public string DescMultiLineText { get; set; }
 
-        public string CheckTimeStamp { get; set; }
+        public string ProductGenreName { get; set; }
+
     }
 }

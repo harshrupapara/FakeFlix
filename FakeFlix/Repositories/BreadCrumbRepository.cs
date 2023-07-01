@@ -32,7 +32,7 @@ namespace FakeFlix.Repositories
             Ancestors CurrentItem = new Ancestors()
             {
                 Name = PageItem.Name,
-                URL = LinkManager.GetItemUrl(PageItem, options).Replace("/Horizontal/FakeFlix", ""),
+                URL = LinkManager.GetItemUrl(PageItem, options).Replace("/horizontal/fakeflix/home", ""),
                 IsActive = PageId == PageItem.ID.ToString(),
             };
 
@@ -47,7 +47,7 @@ namespace FakeFlix.Repositories
                     Ancestors AncestorItem = new Ancestors()
                     {
                         Name = Ancestor.Name,
-                        URL = LinkManager.GetItemUrl(Ancestor, options).Replace("/Horizontal/FakeFlix", ""),
+                        URL = LinkManager.GetItemUrl(Ancestor, options).Replace("/horizontal/fakeflix/home", ""),
                         IsActive = PageId == Ancestor.ID.ToString(),
                     };
                     AncestorsList.Add(AncestorItem);

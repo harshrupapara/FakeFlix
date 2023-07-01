@@ -1,5 +1,6 @@
 ﻿using FakeFlix.Repositories;
 using Sitecore.Mvc.Presentation;
+using Sitecore.Data.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace FakeFlix.Controllers
                 ViewBag.DataSourceID = dataSourceItem?.ID.ToString();
             }
             ViewBag.PageId = PageContext.Current.Item?.ID.ToString();
+            Item pageItem = PageContext.Current?.Item; 
             return View("~/Views/MovieListing/MovieListingComponent.cshtml");
         }
 

@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.2.0\lib\net46\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel, Version=18.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sitecore.Kernel.10.3.0\lib\net48\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -114,28 +117,43 @@
     <Compile Include="Controllers\BannerController.cs" />
     <Compile Include="Controllers\BreadCrumbController.cs" />
     <Compile Include="Controllers\CategoryListingController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\RelatedCategoryController.cs" />
+    <Compile Include="Models\ContactUsModel.cs" />
     <Compile Include="Controllers\FeaturedMoviesController.cs" />
+    <Compile Include="Controllers\MovieDetailsController.cs" />
     <Compile Include="Controllers\MovieListingController.cs" />
+    <Compile Include="Controllers\ProductListingController.cs" />
     <Compile Include="Models\BannerModel.cs" />
     <Compile Include="Models\BreadCrumbModel.cs" />
     <Compile Include="Models\CategoryListingModel.cs" />
     <Compile Include="Models\FeaturedMoviesModel.cs" />
+    <Compile Include="Models\MovieDetailsModel.cs" />
     <Compile Include="Models\MovieListingModel.cs" />
+    <Compile Include="Models\ProductListingModel.cs" />
+    <Compile Include="Models\RelatedCategoryModel.cs" />
     <Compile Include="Pipelines\ErrorProcessor.cs" />
     <Compile Include="Pipelines\LoadRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BannerRepository.cs" />
     <Compile Include="Repositories\BreadCrumbRepository.cs" />
     <Compile Include="Repositories\CategoryListingRepository.cs" />
+    <Compile Include="Repositories\ContactUsRepository.cs" />
     <Compile Include="Repositories\FeaturedMoviesRepository.cs" />
+    <Compile Include="Repositories\MovieDetailsRepository.cs" />
     <Compile Include="Repositories\MovieListingRepository.cs" />
+    <Compile Include="Repositories\ProductListingRepository.cs" />
+    <Compile Include="Repositories\RelatedCategoryRepository.cs" />
     <Compile Include="Utilities\FieldConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Horizontal\FakeFlix\FakeFlix.SiteDefinition.config" />
+    <Content Include="Content\assets\icons\play-button.png" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\js\form-submission.js" />
     <Content Include="Content\js\react-components.js" />
     <Content Include="Content\js\script.js" />
+    <Content Include="Content\js\youtube-video-loader.js" />
     <Content Include="Content\vendor\popper.min.js" />
     <Content Include="Views\Layouts\Main.cshtml" />
     <Content Include="Views\Header\HeaderComponent.cshtml" />
@@ -148,6 +166,11 @@
     <Content Include="App_Config\Include\Horizontal\FakeFlix\FakeFlix.SiteError.config" />
     <Content Include="Views\CategoryListing\CategoryListing.cshtml" />
     <Content Include="Views\MovieListing\MovieListingComponent.cshtml" />
+    <Content Include="Views\MovieDetails\MovieDetailsComponent.cshtml" />
+    <Content Include="Views\ProductListing\ProductListingComponent.cshtml" />
+    <Content Include="Views\ContactUs\ContactUsComponent.cshtml" />
+    <Content Include="nlog.config" />
+    <Content Include="Views\RelatedCategory\RelatedCategoryComponent.cshtml" />
     <None Include="Views\web.config" />
     <None Include="packages.config" />
   </ItemGroup>

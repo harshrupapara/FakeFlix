@@ -1,0 +1,45 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@using FakeFlix.Models
+
+
+
+<div class="listing-categories-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="related-category">
+                    <div class="related-category-title">
+                        <h2 class="text-center">@Html.Sitecore().Field("RelatedCategoyEyebrowText")</h2>
+                    </div>
+                    <div class="related-category-desc">
+                        <p class="text-center">
+                            @Html.Sitecore().Field("RelatedCategoyText")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @{
+                foreach (RelatedCategoryItems items in Model.RelatedCategoyList)
+                {
+                    <div class="col-md-4 __padding">
+                        <div class="card-wrapper">
+                            <a href="@items.CategoryItemUrl" class="category-card-link">
+                                <div class="listing-image-link">
+                                    @Html.Sitecore().Field("CategoryImage", items.CategoryItems)
+                                    <div class="listing-image-caption">
+                                        <p>@Html.Sitecore().Field("CategoryTitle", items.CategoryItems)</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>

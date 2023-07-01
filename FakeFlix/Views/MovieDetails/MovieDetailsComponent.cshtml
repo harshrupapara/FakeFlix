@@ -1,0 +1,75 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Extensions
+@using FakeFlix.Models
+@model FakeFlix.Models.MovieDetailsModel
+
+@{
+    var currentItem = Sitecore.Context.Item;
+    var parentItem = currentItem.Parent;
+    var parentItemName = parentItem.Name;
+}
+
+<div class="productdetails-wrapper">
+    <div class="container-xxl">
+        <div class="row row-cols-1">
+            <div class="col-12">
+                <div class="youtube-container">
+                    <div class="youtube-player" data-id=@Html.Sitecore().Field("MovieTrailerYT-ID", Model.MovieItem)></div>
+                </div>
+
+                <div class="productdetails d-flex flex-column flex-lg-row">
+                    <div class="productdetails_desc col-12 col-lg-8">
+                        <div class="productdetails_title">
+                            <h5>GENRE / <span>@parentItemName</span></h5>
+                            <h3>@Html.Sitecore().Field("MovieTitle", Model.MovieItem)</h3>
+                        </div>
+                        <div class="productdetails_desc__details">
+                            @Html.Sitecore().Field("MovieDesc", Model.MovieItem)
+                        </div>
+                    </div>
+
+                    <div class="productdetails_info col-12 col-lg-4">
+                        <div class="productdetails_info__verticalLine"></div>
+                        <div class="productdetails_info__text">
+                            <div class="info_texts">
+                                <div class="col-3">
+                                    <p class="info_texts__heading">YEAR</p>
+                                </div>
+                                <div class="col">
+                                    <p class="info_texts__details">@Html.Sitecore().Field("MovieReleaseYear", Model.MovieItem)</p>
+                                </div>
+                            </div>
+                            <div class="info_texts">
+                                <div class="col-3">
+                                    <p class="info_texts__heading">DIRECTOR</p>
+                                </div>
+                                <div class="col">
+                                    <p class="info_texts__details">@Html.Sitecore().Field("MovieDirector", Model.MovieItem)</p>
+                                </div>
+                            </div>
+                            <div class="info_texts">
+                                <div class="col-3">
+                                    <p class="info_texts__heading">WRITERS</p>
+                                </div>
+                                <div class="col">
+                                    <p class="info_texts__details">@Html.Sitecore().Field("MovieWriters", Model.MovieItem)</p>
+                                </div>
+                            </div>
+                            <div class="info_texts">
+                                <div class="col-3">
+                                    <p class="info_texts__heading">STARRING</p>
+                                </div>
+                                <div class="col">
+                                    <p class="info_texts__details">
+                                        @Html.Sitecore().Field("StarringCast", Model.MovieItem)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

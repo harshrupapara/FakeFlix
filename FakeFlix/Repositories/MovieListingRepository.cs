@@ -50,9 +50,8 @@ namespace FakeFlix.Repositories
                 }
                 Item listingDetails = dataBase.GetItem(DataSourceId);
                 Item pageItem = dataBase.GetItem(PageId);
-                
-                
-                if(listingDetails != null)
+
+                if (listingDetails != null)
                 {
                     model.MovieListingTitle = listingDetails["MovieListingTitle"];
                 }
@@ -95,10 +94,12 @@ namespace FakeFlix.Repositories
                             MovieCTALink = fieldConverter.GetLinkUrl(item),
                             MovieCTAText = item["MovieCTAText"],
                             MoviePoster = fieldConverter.GetImageUrl(item, "MovieImage"),
+                            DescTextTitle = item["StarringCastsTitle"],
+                            DescMultiLineText = item["StarringCast"],
                             IsMovieNew = !isMovieNew,
                             CurrentDateTime = currentTime.ToString(),
                             CheckedDateTime = lastCheckDateTime.ToString(),
-                            CheckTimeStamp = checkedTimestamp.ToString(),
+
                         };
                         movieListingItems.Add(movieListItems);
                     }
