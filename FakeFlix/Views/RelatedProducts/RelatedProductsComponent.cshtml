@@ -1,0 +1,44 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Data.Fields
+@using Sitecore.Data.Items
+@using FakeFlix.Models
+
+
+<div class="container">
+    <div class="relatedproducts_descriptions">
+        <h2 class="text-center">@Html.Sitecore().Field("RelatedProductEyebrowText")</h2>
+        <p class="text-center">
+            @Html.Sitecore().Field("RelatedProductText")
+        </p>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+        @{
+            foreach (RelatedProductsItems items in Model.RelatedProductList)
+            {
+                <div class="col mb-4 mt-4">
+                    <div class="relatedproducts_card">
+                        <a href="@items.ProductItemURL" class="relatedproducts_card__anchor">
+
+                            <div class="relatedproducts_card__image">
+                                <div>
+                                    @Html.Sitecore().Field("MovieThumbnail", items.ProductItem, new { @class = "card__image" })
+                                </div>
+                               
+
+                                <div class="relatedproducts_card__button">
+                                    <p class="card__button"> @Html.Sitecore().Field("MovieCTAText", items.ProductItem)</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="relatedproducts_card__details">
+                            <h5> @Html.Sitecore().Field("MovieTitle", items.ProductItem)</h5>
+                            <p>
+                                @items.ProductGenre
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

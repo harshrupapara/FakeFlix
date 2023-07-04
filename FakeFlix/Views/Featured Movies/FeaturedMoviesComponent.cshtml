@@ -25,7 +25,10 @@
                     string itemUrl = Sitecore.Links.LinkManager.GetItemUrl(items.FeaturedMovieDetails).Replace("/Horizontal/FakeFlix/Home", "");
                     <div class="grid-item">
                         <a href="@itemUrl" class="image-link">
-                            @Html.Sitecore().Field("FeaturedMovieImage", items.FeaturedMovieDetails, new {@class = "grid-image", @alt = "ImageAnProbably" })
+                            <div>
+                                @Html.Sitecore().Field("FeaturedMovieImage", items.FeaturedMovieDetails, new { @class = "grid-image", @alt = "ImageAnProbably" })
+                            </div>
+                            
                             <span class="image-caption">@Html.Sitecore().Field("MovieTitle", items.FeaturedMovieDetails)</span>
                             <span class="image-caption2">@Html.Sitecore().Field("MovieReleaseYear", items.FeaturedMovieDetails)</span>
                         </a>

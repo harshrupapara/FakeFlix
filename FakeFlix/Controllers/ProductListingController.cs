@@ -14,22 +14,29 @@ namespace FakeFlix.Controllers
     {
         public ActionResult ProductListingComponent()
         {
+
+            Item pageItem = PageContext.Current.Item;
+            string pageId = pageItem?.ID.ToString();
+            if(pageId != null)
+            {
+                ViewBag.PageId = pageId;
+            }
+
             Database dB = Sitecore.Context.Database;
             var dataSourceItem = dB.GetItem(RenderingContext.Current.Rendering.DataSource);
             if (dataSourceItem != null)
             {
                 ViewBag.DataSourceID = dataSourceItem?.ID.ToString();
             }
-            
-            return View("~/Views/ProductListing/ProductListingComponent.cshtml");
-            
+
+            return View("~/Views/ProductListing/ProductListingComponent.cshtml");            
         }
         [HttpGet]
-        public JsonResult GetProductListing(string DataSourceId)
+        public JsonResult GetProductListing(string PageId, string DataSourceId)
         {
-            string ITEM__ID = "{2D4553E4-7062-436D-BAC4-CB4C2099D15A}";
+           
             ProductListingRepository productListingRepository = new ProductListingRepository();
-            return productListingRepository.GetProductListingData(DataSourceId, ITEM__ID);
+            return productListingRepository.GetProductListingData(DataSourceId, PageId);
 
         }
     }

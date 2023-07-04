@@ -14,11 +14,11 @@ namespace FakeFlix.Repositories
 {
     public class ProductListingRepository
     {
-        public JsonResult GetProductListingData(string DataSourceId, string ITEM__ID)
+        public JsonResult GetProductListingData(string DataSourceId, string PageId)
         {
 
             Database dataBase = Sitecore.Configuration.Factory.GetDatabase(Sitecore.Context.Database.Name);
-            Item pageItem = dataBase.GetItem(new ID(ITEM__ID));
+            Item pageItem = dataBase.GetItem(PageId);
             ProductListingModel model = new ProductListingModel();
             List<MovieListingItems> movieListingItems = new List<MovieListingItems>();
             FieldConverter fieldConverter = new FieldConverter();

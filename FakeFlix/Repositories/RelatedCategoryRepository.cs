@@ -16,16 +16,16 @@ namespace FakeFlix.Repositories
         public RelatedCategoryModel GetRelatedCategoryData()
         {
             FieldConverter fieldConverter = new FieldConverter();
-            Item dataSourceItem = RenderingContext.Current.Rendering.Item;
+            Item pageItem = PageContext.Current.Item;
             try
             {
-                if (dataSourceItem == null)
+                if (pageItem == null)
                 {
                     Sitecore.Diagnostics.Log.Error("DATASOURCE ITEM IS NULL!", this);
                     return null;
                 }
                 RelatedCategoryModel model = new RelatedCategoryModel();
-                MultilistField multilist = dataSourceItem.Fields["RelatedCategories"];
+                MultilistField multilist = pageItem.Fields["RelatedCategories"];
                 if (multilist == null)
                 {
                     Sitecore.Diagnostics.Log.Error("Multilist field is empty or null in Related Category Repo!", this);
@@ -52,7 +52,7 @@ namespace FakeFlix.Repositories
             }
             catch(Exception ex)
             {
-                Sitecore.Diagnostics.Log.Error("An error occured in Contact Us Repository", ex, typeof(RelatedCategoryModel));
+                Sitecore.Diagnostics.Log.Error("An error occured in Related Categories Us Repository", ex, typeof(RelatedCategoryModel));
                 return null;
             }
         }

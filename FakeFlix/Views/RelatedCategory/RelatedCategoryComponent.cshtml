@@ -29,7 +29,10 @@
                         <div class="card-wrapper">
                             <a href="@items.CategoryItemUrl" class="category-card-link">
                                 <div class="listing-image-link">
-                                    @Html.Sitecore().Field("CategoryImage", items.CategoryItems)
+                                    <div>
+                                        @Html.Sitecore().Field("CategoryImage", items.CategoryItems)
+                                    </div>
+                                   
                                     <div class="listing-image-caption">
                                         <p>@Html.Sitecore().Field("CategoryTitle", items.CategoryItems)</p>
                                     </div>

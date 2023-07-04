@@ -119,6 +119,7 @@
     <Compile Include="Controllers\CategoryListingController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\RelatedCategoryController.cs" />
+    <Compile Include="Controllers\RelatedProductsController.cs" />
     <Compile Include="Models\ContactUsModel.cs" />
     <Compile Include="Controllers\FeaturedMoviesController.cs" />
     <Compile Include="Controllers\MovieDetailsController.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Models\MovieListingModel.cs" />
     <Compile Include="Models\ProductListingModel.cs" />
     <Compile Include="Models\RelatedCategoryModel.cs" />
+    <Compile Include="Models\RelatedProductsModel.cs" />
     <Compile Include="Pipelines\ErrorProcessor.cs" />
     <Compile Include="Pipelines\LoadRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,15 +146,19 @@
     <Compile Include="Repositories\MovieListingRepository.cs" />
     <Compile Include="Repositories\ProductListingRepository.cs" />
     <Compile Include="Repositories\RelatedCategoryRepository.cs" />
+    <Compile Include="Repositories\RelatedProductsRepository.cs" />
     <Compile Include="Utilities\FieldConverter.cs" />
+    <Compile Include="Utilities\SettingsControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Horizontal\FakeFlix\FakeFlix.SiteDefinition.config" />
     <Content Include="Content\assets\icons\play-button.png" />
+    <Content Include="Content\assets\sounds\fakeflix_intro.mp3" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\js\form-submission.js" />
     <Content Include="Content\js\react-components.js" />
     <Content Include="Content\js\script.js" />
+    <Content Include="Content\js\splash.js" />
     <Content Include="Content\js\youtube-video-loader.js" />
     <Content Include="Content\vendor\popper.min.js" />
     <Content Include="Views\Layouts\Main.cshtml" />
@@ -171,6 +177,7 @@
     <Content Include="Views\ContactUs\ContactUsComponent.cshtml" />
     <Content Include="nlog.config" />
     <Content Include="Views\RelatedCategory\RelatedCategoryComponent.cshtml" />
+    <Content Include="Views\RelatedProducts\RelatedProductsComponent.cshtml" />
     <None Include="Views\web.config" />
     <None Include="packages.config" />
   </ItemGroup>

@@ -22,22 +22,16 @@ namespace FakeFlix.Controllers
         }
 
         [HttpPost]
-        [Obsolete]
         public ActionResult PostContactForm(string name, string email, string message)
         {
             try
             {
                 string formData = $"FORM DETAILS: \nFull Name: {name} \nEmail: {email} \nMessage: {message}";
-                LogManager.LoadConfiguration("nlog.config");
-                var logger = LogManager.GetCurrentClassLogger();
-                logger.Info(formData);
-                LogManager.Flush();
-                LogManager.Shutdown();
 
-                Sitecore.Diagnostics.Log.Info($"FORM SUBMITTED SUCCESSFULLY: {formData}", "CONTACT US POST METHOD DATA");
+                Log.Info($"FORM SUBMITTED SUCCESSFULLY: {formData}", "CONTACT US POST METHOD DATA");
                 return new JsonResult()
                 {
-                    Data = formData,
+                    Data = name,
                     JsonRequestBehavior = JsonRequestBehavior.AllowGet
                 };
             }

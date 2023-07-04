@@ -2,11 +2,30 @@
 @using Sitecore.Mvc.Presentation;
 @model Sitecore.Mvc.Presentation.RenderingModel
 
+@{
+    var faviconUrl = "";
+    Sitecore.Data.Items.Item settingItem = FakeFlix.Utilities.SettingsControl.GetSettingsControlItem();
+
+    Sitecore.Data.Fields.ImageField favicon = settingItem.Fields["Favicon"];
+    if (favicon.MediaItem == null)
+    {
+        faviconUrl = "/";
+    }
+    else
+    {
+        faviconUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(favicon.MediaItem);
+    }
+
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon"
+          type="image/x-icon"
+          href=@faviconUrl />
     <link rel="stylesheet" href="~/Content/css/style.css" />
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -15,17 +34,197 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous" />
-    <title>FakeFlix - Browse your Favorite Movies</title>
+    <title>@Html.Sitecore().Field("PageTitle")</title>
+    <link rel="stylesheet" href="~/Content/css/splash.css"/>
     <script defer="defer" src="~/Content/js/react-components.js"></script>
 
 </head>
 <body>
 
-    @Html.Sitecore().Placeholder("fakeflix-header")
-    <div>
-        @Html.Sitecore().Placeholder("fakeflix-main")
+    <div id="container">
+        @*<audio id="intro-sound" autoplay src="~/Content/assets/sounds/fakeflix_intro.mp3" type="audio/mp3">
+        </audio>*@
+        <!-- Edit the letter attr to: N, E, T, F, L, I or X -->
+        <netflixintro letter="F">
+            <div class="helper-1">
+                <div class="effect-brush">
+                    <span class="fur-31"></span>
+                    <span class="fur-30"></span>
+                    <span class="fur-29"></span>
+                    <span class="fur-28"></span>
+                    <span class="fur-27"></span>
+                    <span class="fur-26"></span>
+                    <span class="fur-25"></span>
+                    <span class="fur-24"></span>
+                    <span class="fur-23"></span>
+                    <span class="fur-22"></span>
+                    <span class="fur-21"></span>
+                    <span class="fur-20"></span>
+                    <span class="fur-19"></span>
+                    <span class="fur-18"></span>
+                    <span class="fur-17"></span>
+                    <span class="fur-16"></span>
+                    <span class="fur-15"></span>
+                    <span class="fur-14"></span>
+                    <span class="fur-13"></span>
+                    <span class="fur-12"></span>
+                    <span class="fur-11"></span>
+                    <span class="fur-10"></span>
+                    <span class="fur-9"></span>
+                    <span class="fur-8"></span>
+                    <span class="fur-7"></span>
+                    <span class="fur-6"></span>
+                    <span class="fur-5"></span>
+                    <span class="fur-4"></span>
+                    <span class="fur-3"></span>
+                    <span class="fur-2"></span>
+                    <span class="fur-1"></span>
+                </div>
+                <div class="effect-lumieres">
+                    <span class="lamp-1"></span>
+                    <span class="lamp-2"></span>
+                    <span class="lamp-3"></span>
+                    <span class="lamp-4"></span>
+                    <span class="lamp-5"></span>
+                    <span class="lamp-6"></span>
+                    <span class="lamp-7"></span>
+                    <span class="lamp-8"></span>
+                    <span class="lamp-9"></span>
+                    <span class="lamp-10"></span>
+                    <span class="lamp-11"></span>
+                    <span class="lamp-12"></span>
+                    <span class="lamp-13"></span>
+                    <span class="lamp-14"></span>
+                    <span class="lamp-15"></span>
+                    <span class="lamp-16"></span>
+                    <span class="lamp-17"></span>
+                    <span class="lamp-18"></span>
+                    <span class="lamp-19"></span>
+                    <span class="lamp-20"></span>
+                    <span class="lamp-21"></span>
+                    <span class="lamp-22"></span>
+                    <span class="lamp-23"></span>
+                    <span class="lamp-24"></span>
+                    <span class="lamp-25"></span>
+                    <span class="lamp-26"></span>
+                    <span class="lamp-27"></span>
+                    <span class="lamp-28"></span>
+                </div>
+            </div>
+            <div class="helper-2">
+                <div class="effect-brush">
+                    <span class="fur-31"></span>
+                    <span class="fur-30"></span>
+                    <span class="fur-29"></span>
+                    <span class="fur-28"></span>
+                    <span class="fur-27"></span>
+                    <span class="fur-26"></span>
+                    <span class="fur-25"></span>
+                    <span class="fur-24"></span>
+                    <span class="fur-23"></span>
+                    <span class="fur-22"></span>
+                    <span class="fur-21"></span>
+                    <span class="fur-20"></span>
+                    <span class="fur-19"></span>
+                    <span class="fur-18"></span>
+                    <span class="fur-17"></span>
+                    <span class="fur-16"></span>
+                    <span class="fur-15"></span>
+                    <span class="fur-14"></span>
+                    <span class="fur-13"></span>
+                    <span class="fur-12"></span>
+                    <span class="fur-11"></span>
+                    <span class="fur-10"></span>
+                    <span class="fur-9"></span>
+                    <span class="fur-8"></span>
+                    <span class="fur-7"></span>
+                    <span class="fur-6"></span>
+                    <span class="fur-5"></span>
+                    <span class="fur-4"></span>
+                    <span class="fur-3"></span>
+                    <span class="fur-2"></span>
+                    <span class="fur-1"></span>
+                </div>
+            </div>
+            <div class="helper-3">
+                <div class="effect-brush">
+                    <span class="fur-31"></span>
+                    <span class="fur-30"></span>
+                    <span class="fur-29"></span>
+                    <span class="fur-28"></span>
+                    <span class="fur-27"></span>
+                    <span class="fur-26"></span>
+                    <span class="fur-25"></span>
+                    <span class="fur-24"></span>
+                    <span class="fur-23"></span>
+                    <span class="fur-22"></span>
+                    <span class="fur-21"></span>
+                    <span class="fur-20"></span>
+                    <span class="fur-19"></span>
+                    <span class="fur-18"></span>
+                    <span class="fur-17"></span>
+                    <span class="fur-16"></span>
+                    <span class="fur-15"></span>
+                    <span class="fur-14"></span>
+                    <span class="fur-13"></span>
+                    <span class="fur-12"></span>
+                    <span class="fur-11"></span>
+                    <span class="fur-10"></span>
+                    <span class="fur-9"></span>
+                    <span class="fur-8"></span>
+                    <span class="fur-7"></span>
+                    <span class="fur-6"></span>
+                    <span class="fur-5"></span>
+                    <span class="fur-4"></span>
+                    <span class="fur-3"></span>
+                    <span class="fur-2"></span>
+                    <span class="fur-1"></span>
+                </div>
+            </div>
+            <div class="helper-4">
+                <div class="effect-brush">
+                    <span class="fur-31"></span>
+                    <span class="fur-30"></span>
+                    <span class="fur-29"></span>
+                    <span class="fur-28"></span>
+                    <span class="fur-27"></span>
+                    <span class="fur-26"></span>
+                    <span class="fur-25"></span>
+                    <span class="fur-24"></span>
+                    <span class="fur-23"></span>
+                    <span class="fur-22"></span>
+                    <span class="fur-21"></span>
+                    <span class="fur-20"></span>
+                    <span class="fur-19"></span>
+                    <span class="fur-18"></span>
+                    <span class="fur-17"></span>
+                    <span class="fur-16"></span>
+                    <span class="fur-15"></span>
+                    <span class="fur-14"></span>
+                    <span class="fur-13"></span>
+                    <span class="fur-12"></span>
+                    <span class="fur-11"></span>
+                    <span class="fur-10"></span>
+                    <span class="fur-9"></span>
+                    <span class="fur-8"></span>
+                    <span class="fur-7"></span>
+                    <span class="fur-6"></span>
+                    <span class="fur-5"></span>
+                    <span class="fur-4"></span>
+                    <span class="fur-3"></span>
+                    <span class="fur-2"></span>
+                    <span class="fur-1"></span>
+                </div>
+            </div>
+        </netflixintro>
     </div>
-    @Html.Sitecore().Placeholder("fakeflix-footer")
+    <div id="main-content">
+        @Html.Sitecore().Placeholder("fakeflix-header")
+        <div>
+            @Html.Sitecore().Placeholder("fakeflix-main")
+        </div>
+        @Html.Sitecore().Placeholder("fakeflix-footer")
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="~/Content/vendor/popper.min.js"></script>
@@ -45,5 +244,6 @@
     <script src="~/Content/js/script.js"></script>
     <script src="~/Content/js/youtube-video-loader.js"></script>
     <script src="~/Content/js/form-submission.js"></script>
+    <script src="~/Content/js/splash.js"></script>
 </body>
 </html>

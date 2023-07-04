@@ -11,24 +11,25 @@
         alert("Please fill in all fields.");
         return;
     }
-
     // Perform additional validation if needed
 
     // Submit the form (you can replace the URL with your actual API endpoint)
     fetch("https://local.fakeflix.com/api/contactus/postcontactform", {
         method: "POST",
-        body: JSON.stringify({ name: name, email: email, message: message }),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            // Process the response data here
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ "name": name, "email": email, "message": message }),
+    }).then(response => response.text())
+        .then(data => {
             console.log(data);
             document.getElementById("contact-form").reset();
             alert("Form submitted successfully! Thank You!");
         })
-        .catch((error) => {
+        .catch(error => {
             console.log(error);
         });
+    console.log(email);
 }
 
 // Attach event listener to form submission
