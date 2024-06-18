@@ -8,6 +8,7 @@ namespace FakeFlix.Models
 {
     public class MovieDetailsModel
     {
+        public string MovieParentName { get; set; }
         public Item MovieItem { get; set; }
 
     }

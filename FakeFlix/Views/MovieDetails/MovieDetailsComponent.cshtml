@@ -3,11 +3,6 @@
 @using FakeFlix.Models
 @model FakeFlix.Models.MovieDetailsModel
 
-@{
-    var currentItem = Sitecore.Context.Item;
-    var parentItem = currentItem.Parent;
-    var parentItemName = parentItem.Name;
-}
 
 <div class="productdetails-wrapper">
     <div class="container-xxl">
@@ -20,7 +15,7 @@
                 <div class="productdetails d-flex flex-column flex-lg-row">
                     <div class="productdetails_desc col-12 col-lg-8">
                         <div class="productdetails_title">
-                            <h5>GENRE / <span>@parentItemName</span></h5>
+                            <h5>GENRE / <span>@Model.MovieParentName</span></h5>
                             <h3>@Html.Sitecore().Field("MovieTitle", Model.MovieItem)</h3>
                         </div>
                         <div class="productdetails_desc__details">

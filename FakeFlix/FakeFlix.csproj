@@ -118,6 +118,7 @@
     <Compile Include="Controllers\BreadCrumbController.cs" />
     <Compile Include="Controllers\CategoryListingController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\EmailSenderController.cs" />
     <Compile Include="Controllers\RelatedCategoryController.cs" />
     <Compile Include="Controllers\RelatedProductsController.cs" />
     <Compile Include="Models\ContactUsModel.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Models\BannerModel.cs" />
     <Compile Include="Models\BreadCrumbModel.cs" />
     <Compile Include="Models\CategoryListingModel.cs" />
+    <Compile Include="Models\EmailSenderModel.cs" />
     <Compile Include="Models\FeaturedMoviesModel.cs" />
     <Compile Include="Models\MovieDetailsModel.cs" />
     <Compile Include="Models\MovieListingModel.cs" />
@@ -147,7 +149,9 @@
     <Compile Include="Repositories\ProductListingRepository.cs" />
     <Compile Include="Repositories\RelatedCategoryRepository.cs" />
     <Compile Include="Repositories\RelatedProductsRepository.cs" />
+    <Compile Include="Scheduler\EmailScheduler.cs" />
     <Compile Include="Utilities\FieldConverter.cs" />
+    <Compile Include="Utilities\MailSender.cs" />
     <Compile Include="Utilities\SettingsControl.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +182,7 @@
     <Content Include="nlog.config" />
     <Content Include="Views\RelatedCategory\RelatedCategoryComponent.cshtml" />
     <Content Include="Views\RelatedProducts\RelatedProductsComponent.cshtml" />
+    <None Include="App_Config\Include\Horizontal\FakeFlix\FakeFlix.EmailCreds.config" />
     <None Include="Views\web.config" />
     <None Include="packages.config" />
   </ItemGroup>
